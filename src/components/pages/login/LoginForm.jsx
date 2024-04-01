@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import OrderPage from '../order/OrderPage'
 
 export default function LoginForm() {
 // state
-const [prenom, setPrenom] = useState("Bob")
+const [prenom, setPrenom] = useState("")
+
+const navigate = useNavigate()
 
 // Comportement
 const handleSubmit = () => { 
-    alert(`Bonjour ${prenom}`)
+  navigate(`order/${prenom}`)
  }
 
 const handleChange = (event) => { 
