@@ -1,9 +1,12 @@
-import LoginPage from "./components/pages/login/LoginPage"
-
+import Router from "./components/pages/router/Router"
 
 function App() {
 
-  return <LoginPage/>
+  return (
+    <div>
+      <Router/>
+    </div>
+  )
 }
 
 export default App
