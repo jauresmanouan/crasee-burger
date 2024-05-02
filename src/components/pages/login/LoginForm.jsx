@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
-import { theme } from "../../../theme";
+import Input from "./Input";
 
 export default function LoginForm() {
   const [prenom, setPrenom] = useState("");
@@ -14,24 +13,12 @@ export default function LoginForm() {
     navigate(`order/${prenom}`);
   };
 
-  const handleChange = (event) => {
-    setPrenom(event.target.value);
-  };
-
   return (
     <LoginFormStyled onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <div className="input-with-container">
-        <BsPersonCircle className="icon" />
-        <input
-          onChange={handleChange}
-          type="text"
-          required
-          placeholder="Entrez votre prénon..."
-        />
-      </div>
+      <Input/>
       <button className="button-with-icon">
         <span>Accédez à mon espace</span>
         <IoChevronForward className="icon-forward" />
