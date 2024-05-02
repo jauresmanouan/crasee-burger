@@ -26,17 +26,16 @@ export default function LoginForm() {
       <div className="input-with-container">
         <BsPersonCircle className="icon" />
         <input
-          c
           onChange={handleChange}
           type="text"
           required
           placeholder="Entrez votre prénon..."
         />
       </div>
-      <div className="button-with-icon">
-        <button>Accédez à votre espace</button>
+      <button className="button-with-icon">
+        <span>Accédez à mon espace</span>
         <IoChevronForward className="icon-forward" />
-      </div>
+      </button>
     </LoginFormStyled>
   );
 }
@@ -89,25 +88,26 @@ const LoginFormStyled = styled.form`
     }
   }
 
-  .button-with-icon{
-    background-color: #FF9F1B;
+  .button-with-icon {
+    width: 100%;
+    background-color: #ff9f1b;
+    color: white;
     border-radius: 5px;
+    padding: 18px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 18px 24px;
     margin: 18px 0;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 
-    button {
-      border: none;
-      font-size: 15px;
-      color: white;
-      background-color: #FF9F1B;
-      font-weight: bold;
+    &:hover:not(:disabled) {
+      background-color: white;
+      color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+      transition: all 200ms ease-out;
     }
-
-    .icon-forward {
-    color: white;
-  }
   }
 `;
