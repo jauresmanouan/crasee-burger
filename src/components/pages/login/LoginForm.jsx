@@ -5,6 +5,7 @@ import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusale-ui/TextInput";
 import PrimaryButton from "../../reusale-ui/PrimaryButton";
+import { theme } from "../../../theme";
 
 export default function LoginForm() {
   const [prenom, setPrenom] = useState("");
@@ -45,22 +46,25 @@ const LoginFormStyled = styled.form`
   margin: 0px auto;
 
   h1 {
-    color: white;
+    color: ${theme.colors.white};
     font-family: "Amatic SC";
-    font-size: 48px;
+    font-size: ${theme.fonts.size.P5};
+    margin-bottom: 32px;
+    margin-top: 0px;
   }
+
   h2 {
-    color: white;
+    color: ${theme.colors.white};
     font-family: "Amatic SC";
-    font-size: 36px;
+    font-size: ${theme.fonts.size.P4};
   }
 
   hr {
-    width: 80%;
-    border: 1.5px solid #ffa01b;
+    width: ${theme.gridUnit} * 10%;
+    border: 1.5px solid ${theme.colors.primary};
   }
 
-  .icon-forward{
-    margin-left: 10px;
+  .icon-forward {
+    margin-left: ${theme.spacing.xs};
   }
 `;

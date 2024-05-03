@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function Logo() {
   return (
@@ -16,12 +17,12 @@ const LogoStyled = styled.div`
   justify-content: center;
 
   img {
-    height: 15vh;
+    height: 150px;
   }
 
   h1 {
-    color: #ffa01b;
+    color: ${theme.colors.primary};
     font-family: "Amatic SC";
-    font-size: 15vh;
+    font-size: 110px;
   }
 `;
