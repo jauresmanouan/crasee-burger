@@ -40,6 +40,7 @@ const fonts = {
     P4: "36px",
     P5: "48px",
     P6: "60px",
+    
   },
   weights: {
     light: 300,
