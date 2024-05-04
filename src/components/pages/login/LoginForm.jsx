@@ -1,30 +1,70 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import OrderPage from '../order/OrderPage'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { IoChevronForward } from "react-icons/io5";
+import { BsPersonCircle } from "react-icons/bs";
+import TextInput from "../../reusale-ui/TextInput";
+import PrimaryButton from "../../reusale-ui/PrimaryButton";
+import { theme } from "../../../theme";
 
 export default function LoginForm() {
-// state
-const [prenom, setPrenom] = useState("")
+  const [prenom, setPrenom] = useState("");
 
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
-// Comportement
-const handleSubmit = () => { 
-  navigate(`order/${prenom}`)
- }
+  const handleSubmit = () => {
+    navigate(`order/${prenom}`);
+  };
 
-const handleChange = (event) => { 
-    setPrenom(event.target.value)
- }
+  const handleChange = (event) => {
+    setPrenom(event.target.value);
+  };
 
-// Affichage
-return (
-<form onSubmit={handleSubmit}>
-  <h1>Bienvenue chez nous !</h1>
-  <br />
-  <p>Connectez-vous</p>
-  <input onChange={handleChange} type="text" required placeholder="Entrez votre prénon..." />
-  <button>Accédez à votre espace</button>
-</form>
-)
+  return (
+    <LoginFormStyled onSubmit={handleSubmit}>
+      <h1>Bienvenue chez nous !</h1>
+      <hr />
+      <h2>Connectez-vous</h2>
+      <TextInput
+        onChange={handleChange}
+        InsertIcon={<BsPersonCircle className="icon" />}
+        placeholder={"Entrez votre prénon..."}
+        required
+      />
+      <PrimaryButton
+        label={"Accéder à mon espace"}
+        buttonIcon={<IoChevronForward className="icon-forward" />}
+      />
+    </LoginFormStyled>
+  );
 }
+
+const LoginFormStyled = styled.form`
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  margin: 0px auto;
+
+  h1 {
+    color: ${theme.colors.white};
+    font-family: "Amatic SC";
+    font-size: ${theme.fonts.size.P5};
+    margin-bottom: 32px;
+    margin-top: 0px;
+  }
+
+  h2 {
+    color: ${theme.colors.white};
+    font-family: "Amatic SC";
+    font-size: ${theme.fonts.size.P4};
+  }
+
+  hr {
+    width: ${theme.gridUnit} * 10%;
+    border: 1.5px solid ${theme.colors.primary};
+  }
+
+  .icon-forward {
+    margin-left: ${theme.spacing.xs};
+  }
+`;
