@@ -1,4 +1,3 @@
-import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Main from "./Main";
 import NavBar from "./NavBar";

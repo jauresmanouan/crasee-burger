@@ -1,15 +1,12 @@
-import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "../../reusale-ui/Logo";
+import Profile from "./Profile";
 
 export default function NavBar() {
-  const { username } = useParams();
-
   return (
     <NavBarStyled className="navbar">
-      <h1>Bonjour {username}</h1>
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
+      <Logo />
+      <Profile />
     </NavBarStyled>
   );
 }
@@ -17,4 +14,7 @@ export default function NavBar() {
 const NavBarStyled = styled.div`
   width: 1400px;
   background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
