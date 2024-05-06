@@ -1,24 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Main from "./Main";
+import NavBar from "./NavBar";
 
 export default function OrderPage() {
-  const { username } = useParams();
-
   return (
     <OrderPageStyled>
-      <h1>Bonjour {username}</h1>
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
-      <Main/>
+      <NavBar />
+      <Main />
     </OrderPageStyled>
   );
 }
 
 const OrderPageStyled = styled.div`
-  height: 100vh;
-  background-color: #FFA01B;
-
-;
+  width: 1512px;
+  height: 982px;
+  background-color: #ffa01b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
