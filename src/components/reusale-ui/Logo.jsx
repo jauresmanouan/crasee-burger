@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Logo() {
+export default function Logo({ className }) {
   return (
-    <LogoStyled>
+    <LogoStyled className={className}>
       <h1>CRAZEE</h1>
       <img src="src/assets/F03-logo-orange.png" alt="logo" />
       <h1>BURGER</h1>
@@ -17,12 +17,11 @@ const LogoStyled = styled.div`
   justify-content: center;
 
   img {
-    height: 150px;
+    height: 40px;
   }
 
   h1 {
     color: ${theme.colors.primary};
     font-family: "Amatic SC";
-    font-size: 110px;
   }
 `;
