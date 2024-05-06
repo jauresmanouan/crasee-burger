@@ -5,7 +5,7 @@ import Profile from "./Profile";
 export default function NavBar() {
   return (
     <NavBarStyled className="navbar">
-      <Logo />
+      <Logo className={"logo"} />
       <Profile />
     </NavBarStyled>
   );
@@ -17,4 +17,9 @@ const NavBarStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  .logo {
+    margin-left: 20px;
+  }
+
 `;

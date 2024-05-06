@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Main from "./Main";
 import NavBar from "./NavBar";
+import { theme } from "../../../theme";
 
 export default function OrderPage() {
   return (
@@ -14,7 +15,7 @@ export default function OrderPage() {
 const OrderPageStyled = styled.div`
   width: 1512px;
   height: 982px;
-  background-color: #ffa01b;
+  background-color: ${theme.colors.primary};
   display: flex;
   flex-direction: column;
   justify-content: center;
