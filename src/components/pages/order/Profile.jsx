@@ -29,7 +29,6 @@ const ProfileStyled = styled.div`
   margin-right: 70px;
 
   .name-button {
-    border: 2px solid yellow;
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -43,8 +42,10 @@ const ProfileStyled = styled.div`
   }
 
   .button {
-    border: blue;
-    background-color: blue;
+    border: ${theme.colors.background_white};
+    background-color: ${theme.colors.background_white};
+    font-family: "Open Sans";
+    padding: 0;
     &:hover {
       text-decoration: underline;
       color: ${theme.colors.greyDark};
@@ -52,10 +53,10 @@ const ProfileStyled = styled.div`
   }
 
   .icon {
-    border: 2px solid yellow;
     height: auto;
     height: 100%;
     font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.greyBlue};
+    margin-left: 10px;
   }
 `;
