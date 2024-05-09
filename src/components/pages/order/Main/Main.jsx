@@ -5,8 +5,9 @@ import Menu from "./Menu";
 export default function Main() {
   return (
     <MainStyled>
-{/*       <div className="basket">Basket</div>
- */}      <Menu />
+      {/*       <div className="basket">Basket</div>
+       */}{" "}
+      <Menu />
     </MainStyled>
   );
 }
@@ -20,7 +21,8 @@ const MainStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr;
 
- /*  .basket {
+  overflow-y: scroll;
+  /*  .basket {
     background-color: blue;
   } */
 `;
