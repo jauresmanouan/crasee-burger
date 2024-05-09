@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import Logo from "../../reusale-ui/Logo";
+import Logo from "../../../reusale-ui/Logo";
 import Profile from "./Profile";
-import { theme } from "../../../theme";
+import { theme } from "../../../../theme";
 
 export default function NavBar() {
   return (
     <NavBarStyled className="navbar">
-      {/** Rendre le logo cliquable et 
+      {/** Rendre le logo cliquable et
        * aussi corriger le soucis sur le l'image du logo
-      */}
+       */}
       <Logo className={"logo"} />
       <Profile />
     </NavBarStyled>
