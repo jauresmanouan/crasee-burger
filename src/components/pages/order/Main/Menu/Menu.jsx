@@ -36,4 +36,11 @@ const MenuStyled = styled.div`
     width: 240px;
     height: 330px;
   }
+
+  .image-product img {
+    background-color: blue;
+    width: 200px;
+    height: 145px;
+    object-fit: contain;
+  }
 `;
