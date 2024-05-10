@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import { fakeMenu2 } from "../../../../../fakeData/fakeMenu";
 import { useState } from "react";
+
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
