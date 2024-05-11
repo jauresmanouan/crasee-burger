@@ -6,9 +6,6 @@ import { theme } from "../../../../theme";
 export default function NavBar() {
   return (
     <NavBarStyled className="navbar">
-      {/** Rendre le logo cliquable et
-       * aussi corriger le soucis sur le l'image du logo
-       */}
       <Logo className={"logo"} />
       <Profile />
     </NavBarStyled>
@@ -31,5 +28,6 @@ const NavBarStyled = styled.div`
   }
   .logo {
     margin-left: 20px;
+    cursor: pointer;
   }
 `;

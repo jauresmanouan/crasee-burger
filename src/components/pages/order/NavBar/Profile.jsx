@@ -46,6 +46,7 @@ const ProfileStyled = styled.div`
     background-color: ${theme.colors.background_white};
     font-family: "Open Sans";
     padding: 0;
+    cursor: pointer;
     &:hover {
       text-decoration: underline;
       color: ${theme.colors.greyDark};
