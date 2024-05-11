@@ -10,7 +10,11 @@ export default function NavBar() {
     <NavBarStyled className="navbar">
       <Logo className={"logo"} onClick={() => refreshPage()} />
       <div className="headerRight">
-        <ToggleButton className="toggleButton"/>
+        <ToggleButton
+          className="toggleButton"
+          labelIfChecked="DÉSACTIVER LE MODE ADMIN"
+          labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        />
         <Profile />
       </div>
     </NavBarStyled>
@@ -36,14 +40,14 @@ const NavBarStyled = styled.div`
     cursor: pointer;
   }
 
-  .headerRight{
+  .headerRight {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Open Sans";
   }
 
-  .toggleButton{
+  .toggleButton {
     padding-right: 50px;
-
   }
 `;
