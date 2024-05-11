@@ -1,15 +1,16 @@
 import React from "react"
-import styled from "styled-components/macro"
 import { theme } from "../../theme"
+import styled from "styled-components"
 
 export default function ToggleButton({
   isChecked,
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
+  className
 }) {
   return (
-    <ToggleButtonStyled>
+    <ToggleButtonStyled className={className}>
       <input
         type="checkbox"
         className="toggle"
