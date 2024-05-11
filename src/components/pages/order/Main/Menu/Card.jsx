@@ -40,7 +40,6 @@ const CardStyled = styled.div`
   }
 
   .description {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,6 +49,11 @@ const CardStyled = styled.div`
       font-family: "Amatic SC";
       font-size: ${theme.fonts.size.P4};
       font-weight: ${theme.fonts.weights.bold};
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      Width:190px;
+
     }
 
     .price-and-button {
@@ -60,11 +64,11 @@ const CardStyled = styled.div`
       margin-bottom: 25px;
     }
 
-    .price-product{
-        font-family: "Open Sans";
-        font-size: ${theme.fonts.size.P0};
-        font-weight: ${theme.fonts.weights.regular};
-        color: ${theme.colors.primary};
+    .price-product {
+      font-family: "Open Sans";
+      font-size: ${theme.fonts.size.P0};
+      font-weight: ${theme.fonts.weights.regular};
+      color: ${theme.colors.primary};
     }
   }
 `;
