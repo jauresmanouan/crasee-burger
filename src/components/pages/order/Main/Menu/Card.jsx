@@ -52,8 +52,7 @@ const CardStyled = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      Width:190px;
-
+      width: 190px;
     }
 
     .price-and-button {
@@ -62,13 +61,24 @@ const CardStyled = styled.div`
       justify-content: center;
       align-items: center;
       margin-bottom: 25px;
-    }
 
-    .price-product {
-      font-family: "Open Sans";
-      font-size: ${theme.fonts.size.P0};
-      font-weight: ${theme.fonts.weights.regular};
-      color: ${theme.colors.primary};
+      .price-product {
+        font-family: "Open Sans";
+        font-size: ${theme.fonts.size.P0};
+        font-weight: ${theme.fonts.weights.regular};
+        color: ${theme.colors.primary};
+      }
+
+      .button {
+        width: 95px;
+        height: 38px;
+        font-size: ${theme.fonts.size.XS};
+      }
+
+      .button:active {
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.background_white};
+      }
     }
   }
 `;
