@@ -3,12 +3,17 @@ import Logo from "../../../reusale-ui/Logo";
 import Profile from "./Profile";
 import { theme } from "../../../../theme";
 import { refreshPage } from "../../../../utils/window";
+import "react-toastify/dist/ReactToastify.css";
+import ToggleAndToast from "./ToggleAndToast";
 
 export default function NavBar() {
   return (
     <NavBarStyled className="navbar">
       <Logo className={"logo"} onClick={() => refreshPage()} />
-      <Profile />
+      <div className="headerRight">
+        <ToggleAndToast />
+        <Profile />
+      </div>
     </NavBarStyled>
   );
 }
@@ -30,5 +35,12 @@ const NavBarStyled = styled.div`
   .logo {
     margin-left: 20px;
     cursor: pointer;
+  }
+
+  .headerRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Open Sans";
   }
 `;
