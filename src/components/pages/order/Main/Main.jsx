@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu/Menu";
+import Admin from "./Menu/Admin/Admin";
 
 export default function Main() {
   return (
@@ -8,6 +9,7 @@ export default function Main() {
       {/*       <div className="basket">Basket</div>
        */}{" "}
       <Menu />
+      <Admin/>
     </MainStyled>
   );
 }
