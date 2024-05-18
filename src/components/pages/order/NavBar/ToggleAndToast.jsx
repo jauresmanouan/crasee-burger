@@ -5,10 +5,10 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 
 export default function ToggleAndToast() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   const displayToastNotification = () => {
-    if (!isAdmin) {
+    if (isAdmin) {
       toast.info("Mode admin activé", {
         // icon: <FaUserSecret size={30} />,
         theme: "dark",
