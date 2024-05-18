@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ToggleButton from "../../../reusale-ui/ToggleButton";
 import { ToastContainer, toast } from "react-toastify";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function ToggleAndToast() {
-  const [isAdmin, setIsAdmin] = useState(true);
+
+  const {isAdmin, setIsAdmin} = useContext(OrderContext)
 
   const displayToastNotification = () => {
     if (isAdmin) {
