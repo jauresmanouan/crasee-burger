@@ -8,8 +8,10 @@ export default function Main() {
     <MainStyled>
       {/*       <div className="basket">Basket</div>
        */}{" "}
-      <Menu />
-      <Admin/>
+      <div className="menu-and-admin">
+        <Menu />
+        <Admin />
+      </div>
     </MainStyled>
   );
 }
@@ -23,8 +25,14 @@ const MainStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr;
 
-  overflow-y: scroll;
+  overflow-y: hidden;
   /*  .basket {
     background-color: blue;
   } */
+
+  .menu-and-admin {
+    overflow-y: scroll;
+    border: 2px solid blue;
+    position: relative;
+  }
 `;
