@@ -17,7 +17,7 @@ export default function Main() {
 }
 const MainStyled = styled.div`
   background-color: ${theme.colors.background_white};
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: ${theme.shadows.strong};
   width: 1400px;
   height: 834.7px;
   border-radius: 0px 0px 15px 15px;
@@ -32,7 +32,6 @@ const MainStyled = styled.div`
 
   .menu-and-admin {
     overflow-y: scroll;
-    border: 2px solid blue;
     position: relative;
   }
 `;

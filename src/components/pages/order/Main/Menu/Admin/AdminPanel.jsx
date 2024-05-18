@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../../../../theme";
 
 export default function AdminPanel() {
   return <AdminPanelStyled>AdminPanel</AdminPanelStyled>;
@@ -7,6 +8,6 @@ export default function AdminPanel() {
 const AdminPanelStyled = styled.div`
   width: 1400px;
   height: 250px;
-  border: 1px 0px 0px 0px;
-  overflow-y: hidden;
+  background-color: white;
+  box-shadow: ${theme.shadows.subtle} ;
 `;

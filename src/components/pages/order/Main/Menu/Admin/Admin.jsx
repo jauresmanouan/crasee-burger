@@ -12,8 +12,7 @@ export default function Admin() {
 }
 
 const AdminStyled = styled.div`
-  background-color: yellow;
-  border: 2px solid fuchsia;
   position: sticky;
   bottom: 0;
+  overflow-x: hidden;
 `;
