@@ -1,15 +1,21 @@
 import styled from "styled-components";
 import Tab from "../../../../../reusale-ui/Tab";
-import { IoChevronDown } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
-import { RiPencilFill } from "react-icons/ri";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+import { MdModeEditOutline } from "react-icons/md";
+import { AiOutlinePlus } from "react-icons/ai";
 
-export default function AdminTab() {
+export default function AdminTab({isCollapse, setIsCollapse}) {
+
   return (
     <AdminTabStyled>
-      <Tab icon={<IoChevronDown />} />
-      <Tab icon={<FaPlus />} name={"Ajouter un produit"} />
-      <Tab icon={<RiPencilFill />} name={"Modifier un produit"} />
+      <Tab
+        icon={isCollapse ? <FiChevronUp /> : <FiChevronDown/>}
+        onclick={() => 
+          setIsCollapse(!isCollapse)
+        }
+      />
+      <Tab icon={<AiOutlinePlus />} name={"Ajouter un produit"} />
+      <Tab icon={<MdModeEditOutline />} name={"Modifier un produit"} />
     </AdminTabStyled>
   );
 }

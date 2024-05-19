@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function Tab({ icon, name }) {
+export default function Tab({ onclick, icon, name }) {
   return (
-    <TabStyled>
+    <TabStyled onClick={onclick}>
       <span className="icon">{icon}</span>
       <span className="name">{name}</span>
     </TabStyled>
