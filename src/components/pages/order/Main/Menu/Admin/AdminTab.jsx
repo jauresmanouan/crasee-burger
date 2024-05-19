@@ -8,12 +8,13 @@ export default function AdminTab() {
   return (
     <AdminTabStyled>
       <Tab icon={<IoChevronDown />} />
-      {/* <Tab icon={<FaPlus />} name={"Ajouter un produit"} />
-      <Tab icon={<RiPencilFill />} name={"Modifier un produit"} /> */}
+      <Tab icon={<FaPlus />} name={"Ajouter un produit"} />
+      <Tab icon={<RiPencilFill />} name={"Modifier un produit"} />
     </AdminTabStyled>
   );
 }
 
 const AdminTabStyled = styled.div`
+  margin-left: 71px;
   display: flex;
 `;

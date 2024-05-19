@@ -20,6 +20,7 @@ const TabStyled = styled.button`
   background: #ffffff;
 
   padding: 0 22px;
+  border: 2px solid #E4E5E9;
 
   .icon {
     width: 16px;
