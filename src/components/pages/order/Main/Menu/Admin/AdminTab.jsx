@@ -14,8 +14,8 @@ export default function AdminTab({isCollapse, setIsCollapse}) {
           setIsCollapse(!isCollapse)
         }
       />
-      <Tab icon={<AiOutlinePlus />} name={"Ajouter un produit"} />
-      <Tab icon={<MdModeEditOutline />} name={"Modifier un produit"} />
+      <Tab icon={<AiOutlinePlus />} name={"Ajouter un produit"} className={ isCollapse ? "is-active" : ""}/>
+      <Tab icon={<MdModeEditOutline />} name={"Modifier un produit"} className={ isCollapse ? "is-active" : ""}/>
     </AdminTabStyled>
   );
 }
@@ -23,4 +23,8 @@ export default function AdminTab({isCollapse, setIsCollapse}) {
 const AdminTabStyled = styled.div`
   margin-left: 71px;
   display: flex;
+
+  .is-active{
+    background-color: black;
+  }
 `;
