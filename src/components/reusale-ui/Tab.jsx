@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function Tab({ onclick, icon, name, className }) {
+export default function Tab({ onClick, icon, name, className }) {
   return (
-    <TabStyled onClick={onclick} className={className}>
+    <TabStyled onClick={onClick} className={className}>
       <span className="icon">{icon}</span>
       <span className={`name ${name && "gap-name-icon"}`}>{name}</span>
     </TabStyled>
@@ -10,8 +10,6 @@ export default function Tab({ onclick, icon, name, className }) {
 }
 
 const TabStyled = styled.button`
-  font-family: "Open Sans";
-
   cursor: pointer;
   height: 43px;
   display: flex;
@@ -20,6 +18,7 @@ const TabStyled = styled.button`
 
   border-radius: 5px 5px 0px 0px;
   background: #ffffff;
+  color: #93a2b1;
 
   padding: 0 22px;
   border: 2px solid #e4e5e9;
@@ -27,15 +26,17 @@ const TabStyled = styled.button`
   .icon {
     width: 16px;
     height: 16px;
-    color: #93a2b1;
   }
   .name {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
-    color: #93a2b1;
   }
 
-  .gap-name-icon{
+  .gap-name-icon {
     margin-left: 13px;
+  }
+
+  &:hover{
+    border-bottom-color: white;
   }
 `;

@@ -5,11 +5,27 @@ import { useState } from "react";
 
 export default function Admin() {
   const [isCollapse, setIsCollapse] = useState(false);
+  const [isAddSelected, setIsAddSelected] = useState(false);
+  const [isEditSelected, setIsEditSelected] = useState(false);
 
   return (
     <AdminStyled>
-      <AdminTab isCollapse={isCollapse} setIsCollapse={setIsCollapse}/>
-      {isCollapse && <AdminPanel />}
+      <AdminTab
+        isCollapse={isCollapse}
+        setIsCollapse={setIsCollapse}
+        isAddSelected={isAddSelected}
+        setIsAddSelected={setIsAddSelected}
+        isEditSelected={isEditSelected}
+        setIsEditSelected={setIsEditSelected}
+      />
+      {isCollapse && (
+        <AdminPanel
+          isAddSelected={isAddSelected}
+          setIsAddSelected={setIsAddSelected}
+          isEditSelected={isEditSelected}
+          setIsEditSelected={setIsEditSelected}
+        />
+      )}
     </AdminStyled>
   );
 }
