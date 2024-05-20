@@ -13,7 +13,7 @@ export default function Main() {
        */}{" "}
       <div className="menu-and-admin">
         <Menu />
-        {isAdmin && <Admin />}
+        {!isAdmin && <Admin />}
       </div>
     </MainStyled>
   );
