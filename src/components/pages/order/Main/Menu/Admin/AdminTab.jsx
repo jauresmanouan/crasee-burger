@@ -31,37 +31,42 @@ export default function AdminTab() {
   };
 
   const tabConfig = [
-    {
-      icon: !isCollapse ? <FiChevronDown /> : <FiChevronUp />,
-      name: "",
-      className: !isCollapse && "is-active",
-      onClick: () => setIsCollapse(!isCollapse),
-    },
+    // {
+    //   icon: !isCollapse ? <FiChevronDown /> : <FiChevronUp />,
+    //   name: "",
+    //   className: !isCollapse && "is-active",
+    //   onClick: () => setIsCollapse(!isCollapse),
+    // },
 
     {
+      index: "add",
       icon: <AiOutlinePlus />,
       name: "Ajouter un produit",
       className: isAddSelected && "is-active",
-      onClick: () => selecTab("add"),
     },
 
     {
+      index: "edit",
       icon: <MdModeEditOutline />,
       name: "Modifier un produit",
       className: isEditSelected && "is-active",
-      onClick: () => selecTab("edit"),
     },
   ];
 
   return (
     <AdminTabStyled>
+      <Tab
+        icon={!isCollapse ? <FiChevronDown /> : <FiChevronUp />}
+        className={!isCollapse && "is-active"}
+        onClick={() => setIsCollapse(!isCollapse)}
+      />
       {tabConfig.map((tab) => {
         return (
           <Tab
             icon={tab.icon}
             name={tab.name}
             className={tab.className}
-            onClick={tab.onClick}
+            onClick={() => selecTab(tab.index)}
           />
         );
       })}
