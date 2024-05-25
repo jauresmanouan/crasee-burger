@@ -10,5 +10,5 @@ export default createContext({
   isCollapse: true,
   setIsCollapse: () => {},
   currentSelectTab: true,
-setCurrentSelectTab:() => {},
+  setCurrentSelectTab: () => {},
 });

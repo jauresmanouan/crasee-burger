@@ -1,57 +1,24 @@
 import styled from "styled-components";
 import Tab from "../../../../../reusale-ui/Tab";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import { MdModeEditOutline } from "react-icons/md";
-import { AiOutlinePlus } from "react-icons/ai";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
+import { getTabsConfig } from "./getTabConfig";
 
 export default function AdminTab() {
   const {
     isCollapse,
     setIsCollapse,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
+    currentSelectTab,
+    setCurrentSelectTab,
   } = useContext(OrderContext);
 
-  const selecTab = (typeTab) => {
+  const selecTab = (tabSelected) => {
     setIsCollapse(false);
-
-    if (typeTab === "add") {
-      setIsAddSelected(true);
-      setIsEditSelected(false);
-    }
-
-    if (typeTab === "edit") {
-      setIsAddSelected(false);
-      setIsEditSelected(true);
-    }
+    setCurrentSelectTab(tabSelected);
   };
 
-  const tabConfig = [
-    // {
-    //   icon: !isCollapse ? <FiChevronDown /> : <FiChevronUp />,
-    //   name: "",
-    //   className: !isCollapse && "is-active",
-    //   onClick: () => setIsCollapse(!isCollapse),
-    // },
-
-    {
-      index: "add",
-      icon: <AiOutlinePlus />,
-      name: "Ajouter un produit",
-      className: isAddSelected && "is-active",
-    },
-
-    {
-      index: "edit",
-      icon: <MdModeEditOutline />,
-      name: "Modifier un produit",
-      className: isEditSelected && "is-active",
-    },
-  ];
+  const tabs = getTabsConfig(currentSelectTab);
 
   return (
     <AdminTabStyled>
@@ -60,12 +27,12 @@ export default function AdminTab() {
         className={!isCollapse && "is-active"}
         onClick={() => setIsCollapse(!isCollapse)}
       />
-      {tabConfig.map((tab) => {
+      {tabs.map((tab) => {
         return (
           <Tab
             icon={tab.icon}
             name={tab.name}
-            className={tab.className}
+            className={currentSelectTab === tab.index && "is-active"}
             onClick={() => selecTab(tab.index)}
           />
         );
