@@ -24,8 +24,8 @@ const NavBarStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+  border-top-right-radius: ${theme.fonts.size.SM};
+  border-top-left-radius: ${theme.fonts.size.SM};
 
   .navbar {
     Profile {

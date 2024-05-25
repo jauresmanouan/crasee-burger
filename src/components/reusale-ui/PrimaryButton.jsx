@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function PrimaryButton({ label, buttonIcon, className }) {
   return (
@@ -20,7 +21,7 @@ const PrimaryButtonStyled = styled.button`
   align-items: center;
   margin: 18px 0;
   border: none;
-  font-size: 15px;
+  font-size: ${theme.fonts.size.SM};
   font-weight: bold;
   cursor: pointer;
 

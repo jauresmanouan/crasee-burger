@@ -9,7 +9,7 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menu.map(({id, imageSource, title, price}) => {
+      {menu.map(({ id, imageSource, title, price }) => {
         return (
           <Card
             key={id}
