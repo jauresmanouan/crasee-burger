@@ -6,12 +6,8 @@ import OrderContext from "../../../../../../context/OrderContext";
 import { getTabsConfig } from "./getTabConfig";
 
 export default function AdminTab() {
-  const {
-    isCollapse,
-    setIsCollapse,
-    currentSelectTab,
-    setCurrentSelectTab,
-  } = useContext(OrderContext);
+  const { isCollapse, setIsCollapse, currentSelectTab, setCurrentSelectTab } =
+    useContext(OrderContext);
 
   const selecTab = (tabSelected) => {
     setIsCollapse(false);
@@ -30,6 +26,7 @@ export default function AdminTab() {
       {tabs.map((tab) => {
         return (
           <Tab
+            key={tab.id}
             icon={tab.icon}
             name={tab.name}
             className={currentSelectTab === tab.index && "is-active"}
