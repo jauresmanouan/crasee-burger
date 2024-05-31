@@ -4,6 +4,7 @@ import NavBar from "./NavBar/NavBar";
 import { theme } from "../../../theme";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -11,6 +12,25 @@ export default function OrderPage() {
   const [isAddSelected, setIsAddSelected] = useState(false);
   const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentSelectTab, setCurrentSelectTab] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+
+  const newProduct = {
+    id: 9,
+    imageSource: "/images/wedges1.png",
+    title: "test produit",
+    price: 3.7,
+  };
+
+  const handleAddProduct = () => {
+    //Copie du state
+    const menuCopy = [...menu];
+    
+    //Manipulation sur la Copie du state
+    const updateMenu = [newProduct, ...menu];
+
+    //Update du state
+    setMenu(updateMenu);
+  };
 
   const orderContextValue = {
     isAdmin,
@@ -23,6 +43,9 @@ export default function OrderPage() {
     setIsEditSelected,
     currentSelectTab,
     setCurrentSelectTab,
+    menu,
+    setMenu,
+    handleAddProduct,
   };
 
   return (
