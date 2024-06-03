@@ -14,17 +14,10 @@ export default function OrderPage() {
   const [currentSelectTab, setCurrentSelectTab] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
 
-  const newProduct = {
-    id: 9,
-    imageSource: "/images/wedges1.png",
-    title: "test produit",
-    price: 3.7,
-  };
-
-  const handleAddProduct = () => {
+  const handleAdd = (newProduct) => {
     //Copie du state
     const menuCopy = [...menu];
-    
+
     //Manipulation sur la Copie du state
     const updateMenu = [newProduct, ...menu];
 
@@ -44,8 +37,7 @@ export default function OrderPage() {
     currentSelectTab,
     setCurrentSelectTab,
     menu,
-    setMenu,
-    handleAddProduct,
+    handleAdd,
   };
 
   return (
