@@ -38,6 +38,10 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
+  const handleResetMenu = () => {
+    setMenu(fakeMenu.MEDIUM);
+  };
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -52,6 +56,7 @@ export default function OrderPage() {
     menu,
     handleDeleteCard,
     handleAdd,
+    handleResetMenu,
   };
 
   return (

@@ -16,7 +16,7 @@ export default function Admin() {
 }
 
 const AdminStyled = styled.div`
-  position: sticky;
+  position: absolute;
   bottom: 0;
   overflow-x: hidden;
 `;

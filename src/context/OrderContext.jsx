@@ -15,4 +15,5 @@ export default createContext({
   handleAdd: () => {},
 
   handleDeleteCard: () => {},
+  handleResetMenu: () => {},
 });
