@@ -18,7 +18,7 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : COMING_SOON}
             title={title}
             price={formatPrice(price)}
-            hasDeleteButton={isAdmin}
+            hasDeleteButton={!isAdmin}
           />
         );
       })}
