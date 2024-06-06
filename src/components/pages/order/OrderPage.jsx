@@ -25,6 +25,19 @@ export default function OrderPage() {
     setMenu(updateMenu);
   };
 
+  const handleDeleteCard = (idOfProductToDelete) => {
+    //1_Copie du state
+    const menuCopy = [...menu];
+
+    //2_Manip de la copie du state
+    const menuUpdated = menuCopy.filter(
+      (product) => product.id !== idOfProductToDelete
+    );
+    console.log("menuUpdated,", menuUpdated);
+    //3_ State Updated
+    setMenu(menuUpdated);
+  };
+
   const orderContextValue = {
     isAdmin,
     setIsAdmin,
@@ -37,7 +50,7 @@ export default function OrderPage() {
     currentSelectTab,
     setCurrentSelectTab,
     menu,
-    setMenu,
+    handleDeleteCard,
     handleAdd,
   };
 

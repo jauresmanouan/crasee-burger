@@ -7,20 +7,7 @@ import OrderContext from "../../../../../context/OrderContext";
 const COMING_SOON = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isAdmin, setMenu } = useContext(OrderContext);
-
-  const handleDeleteCard = (idOfProductToDelete) => {
-    //1_Copie du state
-    const menuCopy = [...menu];
-
-    //2_Manip de la copie du state
-    const menuUpdated = menuCopy.filter(
-      (product) => product.id !== idOfProductToDelete
-    );
-    console.log("menuUpdated,", menuUpdated)
-    //3_ State Updated
-    setMenu(menuUpdated);
-  };
+  const { menu, isAdmin, handleDeleteCard } = useContext(OrderContext);
 
   return (
     <MenuStyled>
