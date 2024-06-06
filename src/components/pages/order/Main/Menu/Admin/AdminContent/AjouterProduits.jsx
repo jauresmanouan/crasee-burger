@@ -2,33 +2,32 @@ import styled from "styled-components";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
 
+const EMPTY_PRODUCT = {
+  id: new Date().getTime(),
+  title: "",
+  imageSource: "",
+  price: 0,
+};
+
 export default function AjouterProduits() {
   // State, Variable and Context
-  const [productName, setProductName] = useState("");
-  const [imageProduct, setImageProduct] = useState("");
-  const [price, setPrice] = useState(0);
+
   const { handleAdd } = useContext(OrderContext);
 
-  const newProduct = {
-    id: new Date().getTime(),
-    title: productName,
-    imageSource: imageProduct,
-    price: price,
-  };
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   // comportement
   const handleAddProduct = () => {
-    handleAdd(newProduct);
+    const newProductToAdd = {
+      ...newProduct,
+      id: crypto.randomUUID(),
+    }
+    handleAdd(newProductToAdd);
   };
 
-  const handleProductName = (event) => {
-    setProductName(event.target.value);
-  };
-  const handleImageProduct = (event) => {
-    setImageProduct(event.target.value);
-  };
-  const handlePrice = (event) => {
-    setPrice(event.target.value);
+  const handleChange = (event) => {
+    const {name, value} = event.target
+    setNewProduct({ ...newProduct, [name]:value });
   };
 
   // Affichage
@@ -36,22 +35,22 @@ export default function AjouterProduits() {
     <AjouterProduitsStyled>
       <div className="image-produit">Image produit</div>
       <div className="infos-produit">
-        <input
+        <input name="title"
           type="text"
-          value={productName}
-          onChange={handleProductName}
+          value={newProduct.title}
+          onChange={handleChange}
           placeholder="Nom du produit (ex: Super Burger)"
         />
-        <input
+        <input name="imageSource"
           type="url"
-          value={imageProduct}
-          onChange={handleImageProduct}
+          value={newProduct.imageSource}
+          onChange={handleChange}
           placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
         />
-        <input
+        <input name="price"
           type="number"
-          onChange={handlePrice}
-          value={price}
+          onChange={handleChange}
+          value={newProduct.price}
           placeholder="Prix"
         />
       </div>
