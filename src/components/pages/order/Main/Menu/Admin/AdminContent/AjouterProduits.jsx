@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -13,8 +14,8 @@ export default function AjouterProduits() {
   // State, Variable and Context
 
   const { handleAdd } = useContext(OrderContext);
-
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isAdded, setisAdded] = useState(false);
 
   // comportement
   const handleAddProduct = () => {
@@ -23,11 +24,20 @@ export default function AjouterProduits() {
       id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
+    setNewProduct(EMPTY_PRODUCT);
+    displayProductAddedMessage();
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const displayProductAddedMessage = () => {
+    setisAdded(true);
+    setTimeout(() => {
+      setisAdded(false);
+    }, 2000);
   };
 
   // Affichage
@@ -67,9 +77,17 @@ export default function AjouterProduits() {
           placeholder="Prix"
         />
       </div>
-      <button onClick={handleAddProduct} className="submit-button">
-        submit-button
-      </button>
+      <div className="submit">
+        <button onClick={handleAddProduct} className="submit-button">
+          submit-button
+        </button>
+        {isAdded && (
+          <span>
+            <FiCheck />
+            Ajouté avec succès !
+          </span>
+        )}
+      </div>
     </AjouterProduitsStyled>
   );
 }
@@ -113,11 +131,12 @@ const AjouterProduitsStyled = styled.div`
     background-color: green;
     grid-area: 1/2/-2/3;
   }
-  .submit-button {
-    cursor: pointer;
-    background-color: pink;
+  .submit {
     grid-area: 4/2/-1/-1;
-    width: 275px;
-    height: 34px;
+    .submit-button {
+      cursor: pointer;
+      width: 275px;
+      height: 34px;
+    }
   }
 `;
