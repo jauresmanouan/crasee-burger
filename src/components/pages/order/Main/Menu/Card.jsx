@@ -3,12 +3,12 @@ import PrimaryButton from "../../../../reusale-ui/PrimaryButton";
 import { theme } from "../../../../../theme";
 import { TiDelete } from "react-icons/ti";
 
-export default function Card({ imageSource, title, price }) {
+export default function Card({ imageSource, title, price, isAdmin}) {
   return (
     <CardStyled>
-      <button className="delete-button" aria-label="delete-button">
+      {isAdmin && <button className="delete-button" aria-label="delete-button">
         <TiDelete className="delete-icon" />
-      </button>
+      </button>}
       <div className="image-product">
         <img src={imageSource} alt={title} />
       </div>

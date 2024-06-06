@@ -8,7 +8,7 @@ const COMING_SOON = "/images/coming-soon.png"
 
 export default function Menu() {
 
-  const {menu} = useContext(OrderContext);
+  const {menu, isAdmin} = useContext(OrderContext);
   return (
     <MenuStyled>
       {menu.map(({ id, imageSource, title, price }) => {
@@ -18,6 +18,7 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : COMING_SOON}
             title={title}
             price={formatPrice(price)}
+            isAdmin={isAdmin}
           />
         );
       })}
