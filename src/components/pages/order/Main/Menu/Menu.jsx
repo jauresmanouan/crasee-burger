@@ -4,6 +4,8 @@ import Card from "./Card";
 import { formatPrice } from "../../../../../utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
 
+const COMING_SOON = "/images/coming-soon.png"
+
 export default function Menu() {
 
   const {menu} = useContext(OrderContext);
@@ -13,7 +15,7 @@ export default function Menu() {
         return (
           <Card
             key={id}
-            imageSource={imageSource}
+            imageSource={imageSource ? imageSource : COMING_SOON}
             title={title}
             price={formatPrice(price)}
           />
