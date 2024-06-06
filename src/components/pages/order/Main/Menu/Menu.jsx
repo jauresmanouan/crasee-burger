@@ -3,21 +3,20 @@ import { useContext } from "react";
 import Card from "./Card";
 import { formatPrice } from "../../../../../utils/maths";
 import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenuClient from "./EmptyMenuClient";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
 
 const COMING_SOON = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isAdmin, handleDeleteCard, handleResetMenu } =
-    useContext(OrderContext);
+  const { menu, isAdmin, handleDeleteCard, handleResetMenu } = useContext(OrderContext);
 
-  if (menu.length === 0) {
-    return (
-      <EmptyMenu className="empty-menu">
-        <span>Le menu est vide ?</span>
-        <span>Cliquez ci-dessous pour le réinitialiser</span>
-        <button onClick={handleResetMenu}>Générer de nouveaux produits</button>
-      </EmptyMenu>
-    );
+  if (menu.length === 0 && !isAdmin) {
+    return <EmptyMenuAdmin onReset={handleResetMenu}/>
+  }
+
+  if (menu.length === 0 && isAdmin) {
+    return <EmptyMenuClient />;
   }
 
   return (
@@ -44,17 +43,4 @@ const MenuStyled = styled.div`
   grid-row-gap: 60px;
   padding: 50px 50px 150px;
   justify-items: center;
-`;
-
-const EmptyMenu = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-
-  button {
-    cursor: pointer;
-  }
 `;
