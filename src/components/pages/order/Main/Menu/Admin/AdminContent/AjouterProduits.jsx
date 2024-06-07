@@ -2,6 +2,8 @@ import styled from "styled-components";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import { theme } from "../../../../../../../theme";
+import TextInput from "../../../../../../reusale-ui/TextInput";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -79,7 +81,7 @@ export default function AjouterProduits() {
       </div>
       <div className="submit">
         <button onClick={handleAddProduct} className="submit-button">
-          submit-button
+          Ajouter un nouveau produit au menu
         </button>
         {isAdded && (
           <span>
@@ -93,7 +95,6 @@ export default function AjouterProduits() {
 }
 
 const AjouterProduitsStyled = styled.div`
-  border: 2px solid red;
   width: 880px;
   height: 160px;
   margin-left: 70px;
@@ -102,10 +103,12 @@ const AjouterProduitsStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
 
   .image-produit {
-    background-color: yellow;
     grid-area: 1/1/4/2;
+    border: 1px solid ${theme.colors.greyLight};
+    border-radius: 5px;
 
     .presence-image {
       width: 100%;
@@ -115,7 +118,6 @@ const AjouterProduitsStyled = styled.div`
     }
 
     .aucune-image {
-      background-color: blueviolet;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -128,15 +130,25 @@ const AjouterProduitsStyled = styled.div`
     gap: 8px;
     display: flex;
     flex-direction: column;
-    background-color: green;
     grid-area: 1/2/-2/3;
+    grid-gap: 8px;
+
+    input {
+      height: 35px;
+    }
   }
   .submit {
     grid-area: 4/2/-1/-1;
+    margin-top: 8px;
     .submit-button {
       cursor: pointer;
       width: 275px;
       height: 34px;
+      background-color: #60bd4f;
+      border: none;
+      border-radius: 5px;
+      color: ${theme.colors.background_white};
+      font-weight: ${theme.fonts.weights.semiBold}
     }
   }
 `;
