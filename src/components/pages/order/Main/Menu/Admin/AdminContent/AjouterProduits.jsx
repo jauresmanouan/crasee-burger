@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
-import { FiCheck } from "react-icons/fi";
+import { CiCircleCheck} from "react-icons/ci";
 import { theme } from "../../../../../../../theme";
-import TextInput from "../../../../../../reusale-ui/TextInput";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -84,10 +83,10 @@ export default function AjouterProduits() {
           Ajouter un nouveau produit au menu
         </button>
         {isAdded && (
-          <span>
-            <FiCheck />
-            Ajouté avec succès !
-          </span>
+            <span>
+              <CiCircleCheck className="icon-check" />
+              Ajouté avec succès !
+            </span>
         )}
       </div>
     </AjouterProduitsStyled>
@@ -138,6 +137,9 @@ const AjouterProduitsStyled = styled.div`
     }
   }
   .submit {
+    display: flex;
+    gap: 15px;
+
     grid-area: 4/2/-1/-1;
     margin-top: 8px;
     .submit-button {
@@ -148,19 +150,31 @@ const AjouterProduitsStyled = styled.div`
       border: none;
       border-radius: 5px;
       color: ${theme.colors.background_white};
-      font-weight: ${theme.fonts.weights.semiBold}
+      font-weight: ${theme.fonts.weights.semiBold};
     }
 
-    .submit-button:hover{
+    .submit-button:hover {
       color: ${theme.colors.success};
       background-color: ${theme.colors.background_white};
       border: 1px solid ${theme.colors.success};
     }
 
-    .submit-button:active{
+    .submit-button:active {
       color: ${theme.colors.background_white};
       background-color: ${theme.colors.success};
+    }
 
+    span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      font-family: "Open Sans";
+      color: ${theme.colors.success};
+      .icon-check{
+        height: 18px;
+        width: 18px;
+      }
     }
   }
 `;
