@@ -144,11 +144,23 @@ const AjouterProduitsStyled = styled.div`
       cursor: pointer;
       width: 275px;
       height: 34px;
-      background-color: #60bd4f;
+      background-color: ${theme.colors.success};
       border: none;
       border-radius: 5px;
       color: ${theme.colors.background_white};
       font-weight: ${theme.fonts.weights.semiBold}
+    }
+
+    .submit-button:hover{
+      color: ${theme.colors.success};
+      background-color: ${theme.colors.background_white};
+      border: 1px solid ${theme.colors.success};
+    }
+
+    .submit-button:active{
+      color: ${theme.colors.background_white};
+      background-color: ${theme.colors.success};
+
     }
   }
 `;
