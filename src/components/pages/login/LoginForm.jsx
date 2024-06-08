@@ -30,6 +30,7 @@ export default function LoginForm() {
         InsertIcon={<BsPersonCircle className="icon" />}
         placeholder={"Entrez votre prénon..."}
         required
+        version="normal"
       />
       <PrimaryButton
         label={"Accéder à mon espace"}

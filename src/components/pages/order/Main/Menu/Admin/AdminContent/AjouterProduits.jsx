@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
-import { CiCircleCheck} from "react-icons/ci";
+import { CiCircleCheck } from "react-icons/ci";
+import { FaHamburger } from "react-icons/fa";
 import { theme } from "../../../../../../../theme";
+import TextInput from "../../../../../../reusale-ui/TextInput";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -56,39 +60,45 @@ export default function AjouterProduits() {
         )}
       </div>
       <div className="infos-produit">
-        <input
+        <TextInput
+          InsertIcon={<FaHamburger className="icon" />}
           name="title"
           type="text"
           value={newProduct.title}
           onChange={handleChange}
           placeholder="Nom du produit (ex: Super Burger)"
+          version="admin"
         />
-        <input
+        <TextInput
+          InsertIcon={<BsFillCameraFill className="icon" />}
           name="imageSource"
           type="url"
           value={newProduct.imageSource}
           onChange={handleChange}
           placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+          version="admin"
         />
-        <input
+        <TextInput
+          InsertIcon={<MdOutlineEuro className="icon" />}
           name="price"
           type="number"
           onChange={handleChange}
           value={newProduct.price}
           placeholder="Prix"
+          version="admin"
         />
       </div>
-      <div className="submit">
+      {/* <div className="submit">
         <button onClick={handleAddProduct} className="submit-button">
           Ajouter un nouveau produit au menu
         </button>
         {isAdded && (
-            <span>
-              <CiCircleCheck className="icon-check" />
-              Ajouté avec succès !
-            </span>
+          <span>
+            <CiCircleCheck className="icon-check" />
+            Ajouté avec succès !
+          </span>
         )}
-      </div>
+      </div> */}
     </AjouterProduitsStyled>
   );
 }
@@ -108,6 +118,10 @@ const AjouterProduitsStyled = styled.div`
     grid-area: 1/1/4/2;
     border: 1px solid ${theme.colors.greyLight};
     border-radius: 5px;
+    height: 120px;
+    width: 215px;
+    font-family: "Open sans";
+    color: ${theme.colors.greySemiDark};
 
     .presence-image {
       width: 100%;
@@ -126,15 +140,11 @@ const AjouterProduitsStyled = styled.div`
   }
 
   .infos-produit {
-    gap: 8px;
-    display: flex;
-    flex-direction: column;
-    grid-area: 1/2/-2/3;
-    grid-gap: 8px;
-
-    input {
-      height: 35px;
-    }
+    /* gap: 8px; */
+    /* display: flex;
+    flex-direction: column; */
+    /* grid-area: 1/2/-2/3; */
+    /* grid-gap: 8px; */
   }
   .submit {
     display: flex;
@@ -171,7 +181,7 @@ const AjouterProduitsStyled = styled.div`
 
       font-family: "Open Sans";
       color: ${theme.colors.success};
-      .icon-check{
+      .icon-check {
         height: 18px;
         width: 18px;
       }
