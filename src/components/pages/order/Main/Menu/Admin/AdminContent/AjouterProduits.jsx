@@ -7,6 +7,7 @@ import { theme } from "../../../../../../../theme";
 import TextInput from "../../../../../../reusale-ui/TextInput";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
+import PrimaryButton from "../../../../../../reusale-ui/PrimaryButton";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -45,6 +46,40 @@ export default function AjouterProduits() {
     }, 2000);
   };
 
+  // const produits = [
+  //   {
+  //     id: 1,
+  //     InsertIcon: `{<FaHamburger className="icon" />}`,
+  //     name: "title",
+  //     type: "text",
+  //     value: "{newProduct.title}",
+  //     onChange: "{handleChange}",
+  //     placeholder: "Nom du produit (ex: Super Burger)",
+  //     version: "minimalist",
+  //   },
+  //   {
+  //     id: 2,
+  //     InsertIcon: `{<BsFillCameraFill className="icon" />}`,
+  //     name: "imageSource",
+  //     type: "url",
+  //     value: `{newProduct.imageSource}`,
+  //     onChange: `{handleChange}`,
+  //     placeholder:
+  //       "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
+  //     version: "minimalist",
+  //   },
+  //   {
+  //     id: 3,
+  //     InsertIcon: `{<MdOutlineEuro className="icon" />}`,
+  //     name: "price",
+  //     type: "number",
+  //     onChange: `{handleChange}`,
+  //     value: "{newProduct.price}",
+  //     placeholder: "Prix",
+  //     version: "minimalist",
+  //   },
+  // ];
+
   // Affichage
   return (
     <AjouterProduitsStyled>
@@ -67,7 +102,7 @@ export default function AjouterProduits() {
           value={newProduct.title}
           onChange={handleChange}
           placeholder="Nom du produit (ex: Super Burger)"
-          version="admin"
+          version="minimalist"
         />
         <TextInput
           InsertIcon={<BsFillCameraFill className="icon" />}
@@ -76,7 +111,7 @@ export default function AjouterProduits() {
           value={newProduct.imageSource}
           onChange={handleChange}
           placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-          version="admin"
+          version="minimalist"
         />
         <TextInput
           InsertIcon={<MdOutlineEuro className="icon" />}
@@ -85,7 +120,7 @@ export default function AjouterProduits() {
           onChange={handleChange}
           value={newProduct.price}
           placeholder="Prix"
-          version="admin"
+          version="minimalist"
         />
       </div>
       {/* <div className="submit">

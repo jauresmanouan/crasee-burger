@@ -17,11 +17,10 @@ export default function TextInput({
 }
 
 const TextInputStyled = styled.div`
-  ${({ version }) =>
-    version === "normal" ? TextInputNormalStyled : TextInputAdminStyled};
+  ${({ version }) => style[version]}
 `;
 
-const TextInputNormalStyled = css`
+const normal = css`
   background-color: #fff;
   border-radius: 5px;
   display: flex;
@@ -47,7 +46,7 @@ const TextInputNormalStyled = css`
   }
 `;
 
-const TextInputAdminStyled = css`
+const minimalist = css`
   background-color: ${theme.colors.background_white};
   border-radius: 5px;
   display: flex;
@@ -75,3 +74,8 @@ const TextInputAdminStyled = css`
     color: lightgray;
   }
 `;
+
+const style = {
+  normal,
+  minimalist,
+};
