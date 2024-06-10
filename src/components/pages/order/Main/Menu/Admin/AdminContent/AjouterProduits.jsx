@@ -7,7 +7,7 @@ import { theme } from "../../../../../../../theme";
 import TextInput from "../../../../../../reusale-ui/TextInput";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import PrimaryButton from "../../../../../../reusale-ui/PrimaryButton";
+import Button from "../../../../../../reusale-ui/Button";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -118,22 +118,26 @@ export default function AjouterProduits() {
           name="price"
           type="number"
           onChange={handleChange}
-          value={newProduct.price}
+          value={newProduct.price ? newProduct.price : ""}
           placeholder="Prix"
           version="minimalist"
         />
       </div>
-      {/* <div className="submit">
-        <button onClick={handleAddProduct} className="submit-button">
-          Ajouter un nouveau produit au menu
-        </button>
+
+      <div className="submit">
+        <Button
+          version="success"
+          label={"Ajouter un nouveau produit au menu"}
+          onClick={handleAddProduct}
+          className="submit-message"
+        />
         {isAdded && (
-          <span>
+          <span className="icon-check-and-message">
             <CiCircleCheck className="icon-check" />
             Ajouté avec succès !
           </span>
         )}
-      </div> */}
+      </div>
     </AjouterProduitsStyled>
   );
 }
@@ -174,51 +178,24 @@ const AjouterProduitsStyled = styled.div`
     }
   }
 
-  .infos-produit {
-    /* gap: 8px; */
-    /* display: flex;
-    flex-direction: column; */
-    /* grid-area: 1/2/-2/3; */
-    /* grid-gap: 8px; */
-  }
   .submit {
     display: flex;
-    gap: 15px;
+    align-items: center;
 
-    grid-area: 4/2/-1/-1;
-    margin-top: 8px;
-    .submit-button {
+    .submit-message{
       cursor: pointer;
-      width: 275px;
-      height: 34px;
-      background-color: ${theme.colors.success};
-      border: none;
-      border-radius: 5px;
-      color: ${theme.colors.background_white};
-      font-weight: ${theme.fonts.weights.semiBold};
     }
 
-    .submit-button:hover {
-      color: ${theme.colors.success};
-      background-color: ${theme.colors.background_white};
-      border: 1px solid ${theme.colors.success};
-    }
-
-    .submit-button:active {
-      color: ${theme.colors.background_white};
-      background-color: ${theme.colors.success};
-    }
-
-    span {
+    .icon-check-and-message {
       display: flex;
       align-items: center;
-      gap: 5px;
-
       font-family: "Open Sans";
+      margin-left: 15px;
       color: ${theme.colors.success};
       .icon-check {
         height: 18px;
         width: 18px;
+        margin-right: 5px;
       }
     }
   }
