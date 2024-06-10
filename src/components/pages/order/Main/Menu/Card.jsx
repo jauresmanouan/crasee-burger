@@ -1,13 +1,23 @@
 import styled from "styled-components";
-import PrimaryButton from "../../../../reusale-ui/PrimaryButton";
+import Button from "../../../../reusale-ui/Button";
 import { TiDelete } from "react-icons/ti";
 import { theme } from "../../../../../theme";
 
-export default function Card({ imageSource, title, price, hasDeleteButton, onDelete }) {
+export default function Card({
+  imageSource,
+  title,
+  price,
+  hasDeleteButton,
+  onDelete,
+}) {
   return (
     <CardStyled>
       {hasDeleteButton && (
-        <button onClick={onDelete} className="delete-button" aria-label="delete-button">
+        <button
+          onClick={onDelete}
+          className="delete-button"
+          aria-label="delete-button"
+        >
           <TiDelete className="delete-icon" />
         </button>
       )}
@@ -18,7 +28,7 @@ export default function Card({ imageSource, title, price, hasDeleteButton, onDel
         <div className="name-product">{title}</div>
         <div className="price-and-button">
           <div className="price-product">{price}</div>
-          <PrimaryButton className="button" label={"Ajouter"} />
+          <Button className="button" label={"Ajouter"} />
         </div>
       </div>
     </CardStyled>
