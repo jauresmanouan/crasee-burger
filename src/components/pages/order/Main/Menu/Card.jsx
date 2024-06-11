@@ -1,10 +1,26 @@
 import styled from "styled-components";
-import PrimaryButton from "../../../../reusale-ui/PrimaryButton";
+import Button from "../../../../reusale-ui/Button";
+import { TiDelete } from "react-icons/ti";
 import { theme } from "../../../../../theme";
 
-export default function Card({ imageSource, title, price }) {
+export default function Card({
+  imageSource,
+  title,
+  price,
+  hasDeleteButton,
+  onDelete,
+}) {
   return (
     <CardStyled>
+      {hasDeleteButton && (
+        <button
+          onClick={onDelete}
+          className="delete-button"
+          aria-label="delete-button"
+        >
+          <TiDelete className="delete-icon" />
+        </button>
+      )}
       <div className="image-product">
         <img src={imageSource} alt={title} />
       </div>
@@ -12,7 +28,7 @@ export default function Card({ imageSource, title, price }) {
         <div className="name-product">{title}</div>
         <div className="price-and-button">
           <div className="price-product">{price}</div>
-          <PrimaryButton className="button" label={"Ajouter"} />
+          <Button className="button" label={"Ajouter"} />
         </div>
       </div>
     </CardStyled>
@@ -27,6 +43,7 @@ const CardStyled = styled.div`
   grid-template-rows: 60% 1fr;
   box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
+  position: relative;
 
   .image-product {
     display: flex;
@@ -39,6 +56,29 @@ const CardStyled = styled.div`
     }
   }
 
+  .delete-button {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+
+    .delete-icon {
+      width: 20px;
+      height: 20px;
+      color: ${theme.colors.primary};
+    }
+    .delete-icon:hover {
+      color: ${theme.colors.red};
+    }
+
+    .delete-icon:active {
+      color: ${theme.colors.primary};
+    }
+  }
   .description {
     display: flex;
     flex-direction: column;

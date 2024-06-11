@@ -12,7 +12,7 @@ export default function AdminPanel() {
 
   return (
     <AdminPanelStyled>
-      {currentSelectTab === tabSelected.index && tabSelected.name}
+      {currentSelectTab === tabSelected.index && tabSelected.Content}
     </AdminPanelStyled>
   );
 }
