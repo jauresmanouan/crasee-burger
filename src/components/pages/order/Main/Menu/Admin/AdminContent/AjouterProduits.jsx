@@ -2,12 +2,10 @@ import styled from "styled-components";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useContext, useState } from "react";
 import { CiCircleCheck } from "react-icons/ci";
-import { FaHamburger } from "react-icons/fa";
 import { theme } from "../../../../../../../theme";
 import TextInput from "../../../../../../reusale-ui/TextInput";
-import { BsFillCameraFill } from "react-icons/bs";
-import { MdOutlineEuro } from "react-icons/md";
 import Button from "../../../../../../reusale-ui/Button";
+import { getProduits } from "./getProduits";
 
 const EMPTY_PRODUCT = {
   id: new Date().getTime(),
@@ -46,39 +44,7 @@ export default function AjouterProduits() {
     }, 2000);
   };
 
-  // const produits = [
-  //   {
-  //     id: 1,
-  //     InsertIcon: `{<FaHamburger className="icon" />}`,
-  //     name: "title",
-  //     type: "text",
-  //     value: "{newProduct.title}",
-  //     onChange: "{handleChange}",
-  //     placeholder: "Nom du produit (ex: Super Burger)",
-  //     version: "minimalist",
-  //   },
-  //   {
-  //     id: 2,
-  //     InsertIcon: `{<BsFillCameraFill className="icon" />}`,
-  //     name: "imageSource",
-  //     type: "url",
-  //     value: `{newProduct.imageSource}`,
-  //     onChange: `{handleChange}`,
-  //     placeholder:
-  //       "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
-  //     version: "minimalist",
-  //   },
-  //   {
-  //     id: 3,
-  //     InsertIcon: `{<MdOutlineEuro className="icon" />}`,
-  //     name: "price",
-  //     type: "number",
-  //     onChange: `{handleChange}`,
-  //     value: "{newProduct.price}",
-  //     placeholder: "Prix",
-  //     version: "minimalist",
-  //   },
-  // ];
+  const produits = getProduits(newProduct);
 
   // Affichage
   return (
@@ -95,35 +61,15 @@ export default function AjouterProduits() {
         )}
       </div>
       <div className="infos-produit">
-        <TextInput
-          InsertIcon={<FaHamburger className="icon" />}
-          name="title"
-          type="text"
-          value={newProduct.title}
-          onChange={handleChange}
-          placeholder="Nom du produit (ex: Super Burger)"
-          version="minimalist"
-        />
-        <TextInput
-          InsertIcon={<BsFillCameraFill className="icon" />}
-          name="imageSource"
-          type="url"
-          value={newProduct.imageSource}
-          onChange={handleChange}
-          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-          version="minimalist"
-        />
-        <TextInput
-          InsertIcon={<MdOutlineEuro className="icon" />}
-          name="price"
-          type="number"
-          onChange={handleChange}
-          value={newProduct.price ? newProduct.price : ""}
-          placeholder="Prix"
-          version="minimalist"
-        />
+        {produits.map((produit) => (
+          <TextInput
+            key={produit.id}
+            {...produit}
+            version="minimalist"
+            onChange={handleChange}
+          />
+        ))}
       </div>
-
       <div className="submit">
         <Button
           version="success"
@@ -182,7 +128,7 @@ const AjouterProduitsStyled = styled.div`
     display: flex;
     align-items: center;
 
-    .submit-message{
+    .submit-message {
       cursor: pointer;
     }
 
