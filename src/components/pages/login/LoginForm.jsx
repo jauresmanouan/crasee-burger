@@ -27,7 +27,7 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
       <TextInput
         onChange={handleChange}
-        InsertIcon={<BsPersonCircle className="icon" />}
+        icon={<BsPersonCircle className="icon" />}
         placeholder={"Entrez votre prénon..."}
         required
         version="normal"
